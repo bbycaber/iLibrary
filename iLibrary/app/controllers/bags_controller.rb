@@ -2,13 +2,8 @@ class BagsController < ApplicationController
   before_action :set_bag, only: [:show, :edit, :update, :destroy]
 
   def index
-      if current_student.bag == nil
-         bag = Bag.new  
-         bad.student_id = current_student.id
-         @bags = current_student.bag
-      elsif 
-        @bags = current_student.bag
-      end 
+         bags = Bag.all  
+      
   end
 
 
