@@ -1,3 +1,3 @@
 class Article < ActiveRecord::Base
-	has_may :authors
+	has_many :authors
 end
