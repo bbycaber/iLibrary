@@ -21,8 +21,7 @@ class MagazinesController < ApplicationController
   def edit
   end
 
-  # POST /magazines
-  # POST /magazines.json
+
   def create
     @magazine = Magazine.new(magazine_params)
 
@@ -37,8 +36,7 @@ class MagazinesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /magazines/1
-  # PATCH/PUT /magazines/1.json
+ 
   def update
     respond_to do |format|
       if @magazine.update(magazine_params)
@@ -51,8 +49,7 @@ class MagazinesController < ApplicationController
     end
   end
 
-  # DELETE /magazines/1
-  # DELETE /magazines/1.json
+
   def destroy
     @magazine.destroy
     respond_to do |format|
@@ -62,12 +59,12 @@ class MagazinesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_magazine
       @magazine = Magazine.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def magazine_params
       params.require(:magazine).permit(:code, :title, :review, :num_page, :source, :themes)
     end

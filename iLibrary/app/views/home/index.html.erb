@@ -2,9 +2,9 @@
 
 
 <%= form_tag('/home/index', method: "GET") do %> 
-<%= text_field_tag :search, params[:search] %>
+<%= text_field_tag :search, params[:search], :class=> "input-medium search-query" %>
 <%= select_tag :category, options_for_select([['All'], ['Books'], ['Magazines'], ['Articles']]) %> 
-<%= submit_tag :filter%> 
+<%= submit_tag :Search, :class => 'btn'%> 
 <% end %>
 
 
@@ -15,6 +15,7 @@
 			Code:  <%= book.code%><br>
 			Pages : <%= book.num_page%><br>
 			<abbr title="Themes">Themes:</abbr> <%= book.themes %>
+			<%= link_to 'Show', book, :class => 'btn btn-link'  %>
 		</address>
 
  <% end %>
@@ -26,6 +27,7 @@
 			Code:  <%= magazine.code%><br>
 			Pages : <%= magazine.num_page%><br>
 			<abbr title="Themes">Themes:</abbr> <%= magazine.themes %>
+			<%= link_to 'Show', magazine, :class => 'btn btn-link' %>
 		</address>
 
  <% end %>
@@ -38,6 +40,7 @@
 			Code:  <%= article.code%><br>
 			Pages : <%= article.num_page%><br>
 			<abbr title="Themes">Themes:</abbr> <%= article.themes %>
+			<%= link_to 'Show', article, :class => 'btn btn-link'  %>
 		</address>
 
  <% end %>
