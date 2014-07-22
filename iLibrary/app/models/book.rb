@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
 	has_many :authors
 
+
 	#attr_accessible :title, :review, :code, :themes, :source, :book_type
 
 	validates :code, presence: true, uniqueness: true
@@ -11,12 +12,11 @@ class Book < ActiveRecord::Base
 
 	def self.search(query)
 	  if query
-	    where("title like ?", "%#{query}%") 
+	    where("title like ? OR themes like ?", "%#{query}%", "%#{query}%") 
 	  else
 	    find(:all)
 	  end
 	end
-
 	
 
 

@@ -7,7 +7,7 @@ class Article < ActiveRecord::Base
 
 	def self.search(query)
 	  if query
-	    where("title like ?", "%#{query}%") 
+	    where("title like ? OR themes like ?", "%#{query}%", "%#{query}%") 
 	  else
 	    find(:all)
 	  end

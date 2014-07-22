@@ -4,10 +4,23 @@ class Student < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-   has_one :reservation
+   has_one :bag
 
-   def resources_reserve
-   	reservation
+   def bag_books
+     	bag.books
    end
+
+   def bag_magazines
+   	   bag.magazines
+   end
+
+
+	def bag_articles
+		bag.articles
+    end
+
+
+
+
    
 end

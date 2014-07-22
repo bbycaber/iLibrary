@@ -49,9 +49,11 @@
           <a class="brand" href="home#index">ILibrary</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <% if student_signed_in? %>
+              <% else %>
+              <li><%= link_to "Login", new_student_session_path  %></li>
+              <li><%= link_to "Sign up", new_student_registration_path  %></li>
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
