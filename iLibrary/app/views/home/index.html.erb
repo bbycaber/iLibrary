@@ -3,44 +3,54 @@
 
 <%= form_tag('/home/index', method: "GET") do %> 
 <%= text_field_tag :search, params[:search], :class=> "input-medium search-query" %>
-<%= select_tag :category, options_for_select([['All'], ['Books'], ['Magazines'], ['Articles']]) %> 
+<%= select_tag :category, options_for_select([['All'], ['Books'], ['Magazines'], ['Articles']]), :class=> 'selectpicker' %> 
 <%= submit_tag :Search, :class => 'btn'%> 
 <% end %>
 
 
+
+
+
 <% @books.each do |book| %>
- 
+    <blockquote>
 		<address>
-			<strong><%= book.title%></strong><br>
-			Code:  <%= book.code%><br>
-			Pages : <%= book.num_page%><br>
-			<abbr title="Themes">Themes:</abbr> <%= book.themes %>
+
+			<h4><%= book.title%></h4><br>
+			<h5>Code:  <%= book.code%><br></h5>
+			<h5>Pages : <%= book.num_page%><br></h5>
+			<h5><abbr title="Themes">Themes:</abbr> <%= book.themes %></h5>
 			<%= link_to 'Show', book, :class => 'btn btn-link' %>
 		</address>
+	</blockquote>
+
 
  <% end %>
 
  <% @magazines.each do |magazine| %>
- 
+
+ <blockquote>
 		<address>
-			<strong><%= magazine.title%></strong><br>
-			Code:  <%= magazine.code%><br>
-			Pages : <%= magazine.num_page%><br>
-			<abbr title="Themes">Themes:</abbr> <%= magazine.themes %>
+			<h4><%= magazine.title%></h4><br>
+			<h5>Code:  <%= magazine.code%><br></h5>
+			<h5>Pages : <%= magazine.num_page%><br></h5>
+			<h5><abbr title="Themes">Themes:</abbr> <%= magazine.themes %></h5>
 			<%= link_to 'Show', magazine, :class => 'btn btn-link' %>
 		</address>
+</blockquote>
 
  <% end %>
 
 
 <% @articles.each do |article| %>
- 
+
+ <blockquote>
 		<address>
-			<strong><%= article.title%></strong><br>
-			Code:  <%= article.code%><br>
-			Pages : <%= article.num_page%><br>
-			<abbr title="Themes">Themes:</abbr> <%= article.themes %>
+			<h4><%= article.title%></h4><br>
+			<h5>Code:  <%= article.code%><br></h5>
+			<h5>Pages : <%= article.num_page%><br></h5>
+			<h5><abbr title="Themes">Themes:</abbr> <%= article.themes %></h5>
 			<%= link_to 'Show', article, :class => 'btn btn-link'  %>
 		</address>
+</blockquote>
 
  <% end %>
