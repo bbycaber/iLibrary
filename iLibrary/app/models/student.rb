@@ -4,5 +4,10 @@ class Student < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-   has_many :reservations
+   has_one :reservation
+
+   def resources_reserve
+   	reservation
+   end
+   
 end
